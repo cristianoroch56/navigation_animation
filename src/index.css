@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.my-navbar-collapse {  
+    transition: all 1s ease-out;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    width: 180px;  
+}
+  
+.my-navbar-collapse.show {
+    transition: all 1s ease-in;
+    overflow: hidden;
+    max-height: 250px;
+    opacity: 1;
+    width: 180px; 
+}
+
+
+span {
+    color: #004042;
+    font-family: 'Poppins';
+}
+
+tr {
+    height: 50px;
+}
+
+td {
+    border-radius: 2px;
+    font-family: 'Poppins';
+}
+
+.clickedClass {
+    color: #2f2f4a;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 12px;
+    padding-top: 20px!important;
+    margin-top: -18px!important;
+    padding-bottom: 20px!important;
+    margin-bottom: -20px!important;
+    padding-left: 15px!important;
+    cursor: pointer;
+}
+
+.spanClass {
+    color: #2f2f4a;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 
+Here i added padding on the left so it didnt push on hover
+*/
+
+.spanClass:hover {
+    cursor: pointer;
+    background-color: white;
+    border-radius: 12px;
+    padding-top: 20px;
+    margin-top: -18px;
+    padding-bottom: 20px;
+    margin-bottom: -20px;
+    padding-left: 15px;
+}
+
+body {
+    margin: 30px;
+    font-family: sans-serif;
+}
+
+.tree {
+    margin: 0;
+    margin-right: 2.5vw;
+    width: 10vw;
+}
+
+.tree input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.tree input~ul {
+    display: none;
+}
+
+
+.tree input:checked~ul {
+    display: block;
+    padding: 0 0px 0 25px;
+}
+
+/* 
+Tree rows
+*/
+
+.tree li {
+    line-height: 1.2;
+    position: relative;
+    padding: 0 0 1em 0;
+    list-style: none;
+}
+
+.tree ul li {
+    padding: 1em 0 0 1em;
+    list-style: none;
+}
+
+.tree>li:last-child {
+    padding-bottom: 0;
+}
+
+/*
+Tree labels
+*/
+
+/*
+Here we have the spacing between the different items
+*/
+
+.tree_label {
+    position: relative;
+    display: inline-block;
+    padding: 14px 0;
+    width: 100%;
+    transition: 1s;
+    border-radius: 10px;
+}
+
+label.tree_label {
+    cursor: pointer;
+}
+
+.tree_label b {
+    padding: 0;
+    font-weight: 600;
+    opacity: 0.5;
+}
+
+/*
+Here is the padding on the left of the text
+*/
+
+.tree li label span {
+    padding: 0 15px;
+    margin-top: 2px;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+/*
+Tree expanded icon
+*/
+
+label.tree_label .label_dropdwn:before {
+    position: absolute;
+    content: ' ';
+    height: 20px;
+    left: 115px;
+    background: url('down-arrow.svg') no-repeat center center;
+    background-size: 20px;
+    width: 20px;
+    transform: rotate(-90deg);
+    transition: 0s ease;
+}
+
+.tree li input:checked~label.tree_label .label_dropdwn:before {
+    transform: rotate(0deg);
+    transition: 1s ease;
+}
+
+/* 
+Tree branches
+*/
+
+img.report-icon {
+    width: 24px;
+    background: rgb(153 121 226 / 19%);
+    padding: 5px;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+
+.tree li ul li .child_label.tree_label {
+    background: transparent;
+    cursor: auto; 
+    display: inline-block;
+}
+
+.tree li ul {
+    position: relative;
+}
+
+.tree li ul:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 24px;
+    display: block;
+    width: 0;
+    border-left: 3px solid #c5bed7;
+    content: "";  
+}
+
+.tree li ul:last-child:before {
+    height: 1em;
+    bottom: auto;
+}
+
+.tree li ul li .tree_label {
+    color: #a3a3a3;
+}
+
+.tree li ul li .tree_label span.label_dropdwn {
+    color: #413e48;
+}
+
+.tree li ul li .tree_label:after {
+    position: absolute;
+    top: 0;
+    left: -1.5em;
+    display: block;
+    height: 1.6em;
+    width: 0.6em;
+    border-bottom: 3px solid #c5bed7;
+    border-left: 3px solid #c5bed7;
+    border-radius: 0 0 0 0.6em;
+    content: "";
+}
+
+.tree li input:checked~label.tree_label:after {
+    border: 0;
+}
+
+.tree li ul li input:checked~label.tree_label:after {
+    position: absolute;
+    display: block;
+    height: 1.6em;
+    width: 0.6em;
+    border-bottom: 3px solid #c5bed7;
+    border-left: 3px solid #c5bed7;
+    border-radius: 0 0 0 0.6em;
+    content: '';
+    bottom: 0;
+}
+
+.tree:last-child:before {
+    height: 1em;
+    bottom: auto;
+}
+
+.tree>li:last-child:before {
+    display: none;
+}
